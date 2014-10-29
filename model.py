@@ -14,5 +14,22 @@ class Pessoa:
 		URL="https://maps.googleapis.com/maps/api/geocode/json?address=" + add + "&key=" + api_key
 		req = urllib2.Request(URL)
 		response = urllib2.urlopen(req)
-		return(response)
+		data = json.load(response)
+		location = data['results'][0]['geometry']['location']
+		return(location)
 
+	def insert_user(self, nome, address):
+		add = self.find_location(address)
+		data = {
+			'name':nome,
+			'address':address,
+			'loc':{
+				'type':'Point',
+				'coordinates': [
+					add['lat'],
+					add['lng']
+					
+				]
+			}
+		}
+		self.users.insert(data)
