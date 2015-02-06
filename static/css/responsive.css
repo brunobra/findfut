@@ -1,0 +1,35 @@
+/* for landscape mobile 
+@media screen and (min-width: 480px) {
+
+}
+*/
+
+/* for tablets and desktops */
+@media screen and (min-width: 660px) {
+	/****************************
+				HEADER
+	*****************************/
+	/*.logo {
+		float: left;
+		margin-left: 5%;
+	}*/
+
+	.menu-anchor {
+		display: none;
+	}
+
+	menu {
+		position: relative;
+	}
+	/* SHOW MENU */
+	menu {
+		-webkit-transform: translateX(0);
+		-moz-transform: translateX(0);
+		-ms-transform: translateX(0);
+		transform: translateX(0);
+		-webkit-transition: all .25s linear;
+		-moz-transition: all .25s linear;
+		-ms-transition: all .25s linear;
+		transition: all .25s linear;
+	}
+}
