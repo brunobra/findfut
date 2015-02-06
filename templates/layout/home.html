@@ -1,0 +1,22 @@
+{% extends 'layout/base.html' %}
+
+{% block span %}
+<span class="menu-anchor"></span>
+{% endblock %}
+
+{% block menu %}
+<menu>
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">Perfil</a></li>
+		<li><a href="#">Amigos</a></li>
+		<li><a href="#">Locais</a></li>
+		<li><a href="#">Sair</a></li>
+	</ul>
+</menu>
+{% endblock %}
+
+
+{% block scriptjs %}
+<script src="{{ url_for('static', filename="js/home.js") }}"></script>
+{% endblock %}

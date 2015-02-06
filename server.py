@@ -21,6 +21,11 @@ def sigin():
     print content
     return "OK"
 
+@app.route("/home")
+def home():
+    resp = make_response(render_template('index.html'))
+    return resp
+
 
 if __name__ == "__main__":
     app.debug = True

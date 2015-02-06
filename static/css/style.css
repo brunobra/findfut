@@ -1,3 +1,10 @@
+/* Isto é necessário para não haver rolagens horizontais quando movermos os elementos */
+html, body {overflow-x: hidden;}
+
+li {
+	list-style: none;
+}
+
 /********************************
 			HEADER
 *********************************/
@@ -7,11 +14,15 @@ header {
 	background: yellow;
 }
 
-.logo img {
+.logo {
 	width: 50px;
 	height: 50px;
 	display: block;
 	margin: 0 auto;
+}
+
+.logo img {
+	width: 100%;
 }
 
 /********************************
@@ -26,3 +37,111 @@ button {
 	height: 70px;
 	margin: 50px auto;
 }
+
+/********************************
+			MENU
+*********************************/
+
+.menu-anchor {
+	width: 40px;
+	height: 32px;
+	margin: 10px auto; 
+	display: block;
+	float: left;
+	background: #FFF;
+}
+
+.menu-anchor:before {
+	content: "";
+	display: block;
+	margin: 7px auto;
+	width: 70%;
+	height: 0.25em;
+	background: #f49c14;
+	box-shadow: 0 .45em 0 0 #f49c14, 0 .9em 0 0 #f49c14;
+}
+
+.menu-active .menu-anchor {background: #d55401}
+
+menu {
+	margin-top: 0;
+	padding: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 120px;
+	height: 100%;
+	padding-top: 10px;
+	background: #d55401;
+	box-shadow: inset -5px -10px 10px 0 rgba(0,0,0,.3)
+}
+
+menu ul {
+	padding: 0;
+}
+
+menu li a {
+	display: block;
+	border-bottom: 1px solid rgba(255,255,255,.3);
+	margin: 0 10px;
+	padding: 10px;
+	color: #FFF;
+	text-decoration: none;
+}
+
+menu li a:hover {
+	background: #FFF;
+	color: #d55401;
+}
+
+
+/*
+	Aqui você esconde o menu para fora da tela 
+	O valor é exatamente a largura da sidebar
+*/
+menu {
+	-webkit-transform: translateX(-120px);
+	-moz-transform: translateX(-120px);
+	-ms-transform: translateX(-120px);
+	transform: translateX(-120px);
+	-webkit-transition: all .25s linear;
+	-moz-transition: all .25s linear;
+	-ms-transition: all .25s linear;
+	transition: all .25s linear;
+}
+
+/*
+	Essa é a posição original do HEADER e do MAIN
+*/
+header, .main {
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+	-webkit-transition: all .25s linear;
+	-moz-transition: all .25s linear;
+	-ms-transition: all .25s linear;
+	transition: all .25s linear;
+}
+
+/*
+   Com a classe menu-active na tag HTML
+*/
+.menu-active menu {
+	-webkit-transform: translateX(0);
+	-moz-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+}
+
+.menu-active header, 
+.menu-active .main {
+	-webkit-transform: translateX(120px);
+	-moz-transform: translateX(120px);
+	-ms-transform: translateX(120px);
+	transform: translateX(120px);
+}
+
+*/
+
