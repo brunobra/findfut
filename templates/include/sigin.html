@@ -9,20 +9,26 @@
     	<input type="text" id="bday" placeholder="__/__/___" name="bday">
 
     	<label>Sexo:</label>
-    	<input type="radio" id="man" value="man" name="genre"><label for="man">Homem</label>
-    	<input type="radio" id="woman" value="woman" name="genre"><label for="woman">Mulher</label>
+    	<input type="radio" id="man" value="man" name="genre"><label class="genre" for="man">Homem</label>
+    	<input type="radio" id="woman" value="woman" name="genre"><label class="genre" for="woman">Mulher</label>
 
-        <input type="text" placeholder="Endereço" name="address">
-        <input type="text" placeholder="Cidade" name="city">
-        <input type="text" placeholder="Estado" name="state">
+        <label for="address">Endereço</label>
+        <input type="text" id="address"placeholder="Endereço" name="address">
 
-    	<label>Tipo:</label>
-    	<input type="radio" id="player" value="player" name="type"><label for="player">Jogador</label>
-    	<input type="radio" id="place" value="place" name="type"><label for="place">Estabelecimento</label>
+        <label for="city">Cidade</label>
+        <input type="text" id="city" placeholder="Cidade" name="city">
 
-        <input type="text"     class="form-field" placeholder="Email" name="email">
-        <input type="password" class="form-field" placeholder="Senha" name="password">
-        <input type="confirm-password" class="form-field" placeholder="Senha outra vez" name="confirm-password">
+        <label for="state">Estado</label>
+        <input type="text" id="state" placeholder="Estado" name="state">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="Email" name="email">
+
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Senha" name="password">
+
+        <label for="confirm-pass">Senha Novamente</label>
+        <input type="confirm-pass" id="confirm-pass" placeholder="Senha outra vez" name="confirm-pass">
 
     </fieldset>
     <button type="submit">Cadastrar</button>

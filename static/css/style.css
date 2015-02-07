@@ -1,5 +1,9 @@
-/* Isto é necessário para não haver rolagens horizontais quando movermos os elementos */
+
 html, body {overflow-x: hidden;}
+
+body {
+	background: lightyellow;
+}
 
 li {
 	list-style: none;
@@ -62,14 +66,50 @@ form {
 
 fieldset {
 	border-width: 10px;
-	text-align: left;
+}
+
+.form-mobile {
+	display: inline-block;
 }
 
 form input {
-	margin-top: 10px;
-	border-radius: 2px;
+	width: 250px;
+	margin: 10px 0 0 0;
+	border-radius: 10px;
+	text-align: center;
 }
 
+#bday {
+	width: 90px;
+}
+label[for="login-email"],
+label[for="login-pass"],
+label[for="name"],
+label[for="address"],
+label[for="city"],
+label[for="state"],
+label[for="email"],
+label[for="password"],
+label[for="confirm-pass"]
+ {
+	display: none;
+}
+
+label {
+  display: block;
+  margin-top: 8px;
+}
+
+input[type="radio"]{
+	display: inline-block;
+	width: 15px;
+	margin: 5px 2px 5px 2px;
+}
+
+label.genre {
+	display: inline-block;
+	margin: 5px 2px 5px 2px;
+}
 
 
 /********************************
