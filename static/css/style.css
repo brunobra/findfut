@@ -29,10 +29,21 @@ header {
 }
 
 /********************************
+			BODY
+*********************************/
+
+.main {
+	width: 320px;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/********************************
 			BUTTONS
 *********************************/
 
-button {
+.sigin, .login {
 	background: green;
 	color: blue;
 	display: block;
@@ -40,6 +51,26 @@ button {
 	height: 70px;
 	margin: 50px auto;
 }
+
+/********************************
+		  FORM
+*********************************/
+
+form {
+	margin: 10px; 
+}
+
+fieldset {
+	border-width: 10px;
+	text-align: left;
+}
+
+form input {
+	margin-top: 10px;
+	border-radius: 2px;
+}
+
+
 
 /********************************
 			MENU

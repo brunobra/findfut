@@ -2,8 +2,10 @@
 	<form enctype="application/json" class="form-login" action="/login" method="post">
 		<h1>Login</h1>
 	    <fieldset>
-	        <input type="text"     class="form-field" placeholder="Email" name="email">
-	        <input type="password" class="form-field" placeholder="Senha" name="password">
+	    	<label for="email">Email:</label>
+	        <input type="text"     id="email" placeholder="Email" name="email">
+	        <label for="pass">Senha:</label>
+	        <input type="password" id="pass" placeholder="Senha" name="password">
 	    </fieldset>
 	    <button type="submit">Entrar</button>
 	</form>
