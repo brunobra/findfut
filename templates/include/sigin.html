@@ -1,6 +1,8 @@
 <button type="submit" class="sigin">Cadastre-se</button>
-<form class="form-sigin" method="POST">
-	<h1>Cadastro</h1>
+<button type="submit" class="button-user">Usuário</button>
+<button type="submit" class="button-place">Estabelecimento</button>
+<form class="form-user" method="POST">
+	<h1>Cadastro Usuário</h1>
     <fieldset>
     	<label for="name">Nome:</label>
     	<input type="text" id="name" placeholder="Nome" name="name">
@@ -11,6 +13,34 @@
     	<label>Sexo:</label>
     	<input type="radio" id="man" value="man" name="genre"><label class="genre" for="man">Homem</label>
     	<input type="radio" id="woman" value="woman" name="genre"><label class="genre" for="woman">Mulher</label>
+
+        <label for="address">Endereço</label>
+        <input type="text" id="address"placeholder="Endereço" name="address">
+
+        <label for="city">Cidade</label>
+        <input type="text" id="city" placeholder="Cidade" name="city">
+
+        <label for="state">Estado</label>
+        <input type="text" id="state" placeholder="Estado" name="state">
+
+        <label for="email">Email</label>
+        <input type="text" id="email" placeholder="Email" name="email">
+
+        <label for="password">Senha</label>
+        <input type="password" id="password" placeholder="Senha" name="password">
+
+        <label for="confirm-pass">Senha Novamente</label>
+        <input type="confirm-pass" id="confirm-pass" placeholder="Senha outra vez" name="confirm-pass">
+
+    </fieldset>
+    <button type="submit">Cadastrar</button>
+</form>
+
+<form class="form-place" method="POST">
+    <h2>Cadastro Estabelecimento</h2>
+    <fieldset>
+        <label for="name">Nome:</label>
+        <input type="text" id="name" placeholder="Nome" name="name">
 
         <label for="address">Endereço</label>
         <input type="text" id="address"placeholder="Endereço" name="address">

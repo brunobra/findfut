@@ -37,7 +37,7 @@ header {
 *********************************/
 
 .main {
-	width: 320px;
+	width: 350px;
 	display: block;
 	margin: 0 auto;
 	text-align: center;
@@ -47,13 +47,21 @@ header {
 			BUTTONS
 *********************************/
 
-.sigin, .login {
+.sigin,
+.login{
 	background: green;
 	color: blue;
 	display: block;
 	width: 200px;
 	height: 70px;
 	margin: 50px auto;
+}
+
+.button-user,
+.button-place{
+	width: 150px;
+	height: 40px;
+	margin: 10px;
 }
 
 /********************************
