@@ -4,62 +4,23 @@
 <form class="form-user" method="POST">
 	<h1>Cadastro Usuário</h1>
     <fieldset>
-    	<label for="name">Nome:</label>
-    	<input type="text" id="name" placeholder="Nome" name="name">
-
-    	<label for="age">Data de Nascimento:</label>
-    	<input type="text" id="bday" placeholder="__/__/___" name="bday">
-
-    	<label>Sexo:</label>
-    	<input type="radio" id="man" value="man" name="genre"><label class="genre" for="man">Homem</label>
-    	<input type="radio" id="woman" value="woman" name="genre"><label class="genre" for="woman">Mulher</label>
-
-        <label for="address">Endereço</label>
-        <input type="text" id="address"placeholder="Endereço" name="address">
-
-        <label for="city">Cidade</label>
-        <input type="text" id="city" placeholder="Cidade" name="city">
-
-        <label for="state">Estado</label>
-        <input type="text" id="state" placeholder="Estado" name="state">
-
-        <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Email" name="email">
-
-        <label for="password">Senha</label>
-        <input type="password" id="password" placeholder="Senha" name="password">
-
-        <label for="confirm-pass">Senha Novamente</label>
-        <input type="confirm-pass" id="confirm-pass" placeholder="Senha outra vez" name="confirm-pass">
-
+        {{ form.hidden_tag() }}
+        {% for field in form %}
+            <div class="field">
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div class="notification error"> {{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+                {{ field(placeholder=field.label.text) }}
+            </div>
+        {% endfor %}
+        <button type="submit" id="submit">Cadastrar!</button>
     </fieldset>
-    <button type="submit">Cadastrar</button>
 </form>
 
 <form class="form-place" method="POST">
     <h2>Cadastro Estabelecimento</h2>
     <fieldset>
-        <label for="name">Nome:</label>
-        <input type="text" id="name" placeholder="Nome" name="name">
-
-        <label for="address">Endereço</label>
-        <input type="text" id="address"placeholder="Endereço" name="address">
-
-        <label for="city">Cidade</label>
-        <input type="text" id="city" placeholder="Cidade" name="city">
-
-        <label for="state">Estado</label>
-        <input type="text" id="state" placeholder="Estado" name="state">
-
-        <label for="email">Email</label>
-        <input type="text" id="email" placeholder="Email" name="email">
-
-        <label for="password">Senha</label>
-        <input type="password" id="password" placeholder="Senha" name="password">
-
-        <label for="confirm-pass">Senha Novamente</label>
-        <input type="confirm-pass" id="confirm-pass" placeholder="Senha outra vez" name="confirm-pass">
-
     </fieldset>
-    <button type="submit">Cadastrar</button>
 </form>
