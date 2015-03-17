@@ -1,11 +1,18 @@
 <button type="submit" class="login">Login</button>
-	<form enctype="application/json" class="form-login" action="/login" method="post">
+	<form class="form-login" method="post">
 		<h1>Login</h1>
 	    <fieldset>
-	    	<label for="login-email">Email:</label>
-	        <input type="text" id="login-email" placeholder="Email" name="email">
-	        <label for="login-pass">Senha:</label>
-	        <input type="password" id="login-pass" placeholder="Senha" name="password">
+	   	{{ login_form.hidden_tag() }}
+        {% for field in login_form %}
+            <div class="field">
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div class="notification error"> {{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+                {{ field(placeholder=field.label.text) }}
+            </div>
+        {% endfor %}
+        <button type="submit" id="submit">Login!</button>
 	    </fieldset>
-	    <button type="submit">Entrar</button>
 	</form>

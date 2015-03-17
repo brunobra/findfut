@@ -16,6 +16,7 @@
 				<img src="{{ url_for('static', filename="img/logo.png") }}">
 			</a>
 		</div>
+		{% block user_info %}{% endblock %}
 	</header>
 	{% block menu %}{% endblock %}
 	<section>

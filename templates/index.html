@@ -1,1 +1,9 @@
 {% extends 'layout/home.html' %}
+
+{% block user_info %}
+	{% if current_user.is_authenticated() %}
+		<ul class="user_info"><a href="#">{{ current_user.username }}</a>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	{% endif %}
+{% endblock %}

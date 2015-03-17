@@ -36,7 +36,6 @@ class User(UserMixin, Document):
             bday = datetime.date(int(y), int(m), int(d))
             return bday
 
-
         try:
             cls(
                 username = username,
@@ -58,15 +57,35 @@ class Place(Document):
     address = StringField()
     city = StringField()
     state = StringField()
-    loc = DictField()
+    loc = GeoPointField()
     sport = StringField()
-    obs = StringField()
+    email = EmailField()
+    password = StringField()
 
-    def get_loc(self, address):
-        add = address.replace(" ", "+")
-        API_KEY = "AIzaSyBk_IAok7qdMik0U8iTyZ3h09xKJ9kBtNs"
-        URL="https://maps.googleapis.com/maps/api/geocode/json?address=" + add + "&key=" + API_KEY
-        req = requests.get(URL)
-        resp = req.json()
-        loc = resp['results'][0]['geometry']['location']
-        return [loc['lat'], loc['lng']]
+    @classmethod
+    def create_place(cls, name, address, city, state, sport, email, password):
+
+        def get_loc(address):
+            add = address.replace(" ", "+")
+            API_KEY = "AIzaSyBk_IAok7qdMik0U8iTyZ3h09xKJ9kBtNs"
+            URL="https://maps.googleapis.com/maps/api/geocode/json?address=" + add + "&key=" + API_KEY
+            req = requests.get(URL)
+            resp = req.json()
+            loc = resp['results'][0]['geometry']['location']
+            return [loc['lat'], loc['lng']]
+
+        try:
+            cls(
+                name = name,
+                address = address,
+                city = city,
+                state = state,
+                loc = get_loc(address),
+                sport = sport,
+                email = email,
+                password = generate_password_hash(password)
+            ).save()
+        except:
+            raise ValueError("Places already exists!")
+
+
