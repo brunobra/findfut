@@ -1,4 +1,4 @@
-futeba
+FindFut
 ======
 
 1 - Install Virtualenv:
