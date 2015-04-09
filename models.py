@@ -6,7 +6,7 @@ from flask.ext.bcrypt import generate_password_hash
 
 from mongoengine import *
 
-connect('futeba')
+connect('findfut')
 
 class User(UserMixin, Document):
     username = StringField(unique=True)
