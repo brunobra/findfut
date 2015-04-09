@@ -5,8 +5,11 @@
 {% block content %}
 <div class="main">
 	{% include 'include/login.html' %}
-	{% include 'include/sigin.html' %}
 </div>
+
+<a href="{{ url_for('new_user') }}"><button>New User</button></a>
+<a href="{{ url_for('new_place') }}"><button>New Place</button></a>
+
 {% endblock %}
 {% block scriptjs %}
 <script src="{{ url_for('static', filename="js/login.js") }}"></script>

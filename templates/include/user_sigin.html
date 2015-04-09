@@ -1,0 +1,17 @@
+<form class="form-user" method="POST">
+	<h1>Cadastro Usuário</h1>
+    <fieldset>
+        {{ user_form.hidden_tag() }}
+        {% for field in user_form %}
+            <div class="field">
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <div class="notification error"> {{ error }}</div>
+                    {% endfor %}
+                {% endif %}
+                {{ field(placeholder=field.label.text) }}
+            </div>
+        {% endfor %}
+        <button type="submit" id="submit">Cadastrar!</button>
+    </fieldset>
+</form>

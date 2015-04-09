@@ -1,18 +1,15 @@
-<button type="submit" class="login">Login</button>
-	<form class="form-login" method="post">
-		<h1>Login</h1>
-	    <fieldset>
-	   	{{ login_form.hidden_tag() }}
-        {% for field in login_form %}
-            <div class="field">
-                {% if field.errors %}
-                    {% for error in field.errors %}
-                        <div class="notification error"> {{ error }}</div>
-                    {% endfor %}
-                {% endif %}
-                {{ field(placeholder=field.label.text) }}
-            </div>
-        {% endfor %}
-        <button type="submit" id="submit">Login!</button>
-	    </fieldset>
-	</form>
+<form class="form-login" method="post">
+    <h1>Login</h1>
+    {{ login_form.hidden_tag() }}
+    {% for field in login_form %}
+    <div class="field">
+        {% if field.errors %}
+            {% for error in field.errors %}
+                <div class="notification error"> {{ error }}</div>
+            {% endfor %}
+        {% endif %}
+        {{ field(placeholder=field.label.text) }}
+    </div>
+    {% endfor %}
+    <button type="submit" id="submit">Login!</button>
+</form>

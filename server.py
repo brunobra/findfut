@@ -24,37 +24,9 @@ def load_user(user_id):
   except models.DoesNotExist:
     return None
 
-
 @app.route("/", methods=('GET', 'POST'))
 def index():
-    user_form = forms.RegisterFormUser()
-    place_form = forms.RegisterFormPlace()
     login_form = forms.LoginForm()
-    # Register User
-    if user_form.validate_on_submit():
-        flash("Registered!", "success")
-        models.User.create_user(
-            username = user_form.username.data,
-            bday = user_form.bday.data,
-            genre = user_form.genre.data,
-            address = user_form.address.data,
-            city = user_form.city.data,
-            state = user_form.state.data,
-            email = user_form.email.data,
-            password = user_form.password.data)
-        return redirect(url_for('home'))
-    # Register Place
-    if place_form.validate_on_submit():
-        flash("Registered!", "success")
-        models.Place.create_place(
-            name = place_form.name.data,
-            address = place_form.address.data,
-            city = place_form.city.data,
-            state = place_form.state.data,
-            sport = place_form.sport.data,
-            email = place_form.email.data,
-            password = place_form.password.data)
-        return redirect(url_for('home'))
     # Login
     if login_form.validate_on_submit():
         if login_form.login_type.data == 'user':
@@ -81,16 +53,64 @@ def index():
                     return redirect(url_for('home'))
                 else:
                     flash("Your email or password doesn't match!", "error")
-    return make_response(render_template('login.html', user_form=user_form, place_form=place_form, login_form=login_form))
+    return make_response(render_template('login.html', login_form=login_form))
 
+
+@app.route("/new_user", methods=('GET', 'POST'))
+def new_user():
+    user_form = forms.RegisterFormUser()
+    # Register User
+    if user_form.validate_on_submit():
+        flash("Registered!", "success")
+        models.User.create_user(
+            username = user_form.username.data,
+            bday = user_form.bday.data,
+            genre = user_form.genre.data,
+            address = user_form.address.data,
+            city = user_form.city.data,
+            state = user_form.state.data,
+            email = user_form.email.data,
+            password = user_form.password.data
+        )
+        user = models.User.objects(email=user_form.email.data).get()
+        login_user(user)
+        return redirect(url_for('home'))
+    return make_response(render_template('new_user.html', user_form=user_form))
+
+
+@app.route("/new_place", methods=('GET', 'POST'))
+def new_place():
+    place_form = forms.RegisterFormPlace()
+    # Register Place
+    if place_form.validate_on_submit():
+        flash("Registered!", "success")
+        models.Place.create_place(
+            name = place_form.name.data,
+            address = place_form.address.data,
+            city = place_form.city.data,
+            state = place_form.state.data,
+            sport = place_form.sport.data,
+            email = place_form.email.data,
+            password = place_form.password.data)
+        return redirect(url_for('home'))
+    return make_response(render_template('new_place.html', place_form=place_form))
+
+@login_required
 @app.route("/home")
 def home():
-    resp = make_response(render_template('index.html'))
+    resp = make_response(render_template('home.html'))
     return resp
 
 
-@app.route('/logout')
 @login_required
+@app.route("/profile")
+def profile():
+    resp = make_response(render_template('profile.html'))
+    return resp
+
+
+@login_required
+@app.route('/logout')
 def logout():
     logout_user()
     flash("You've been logged out! Come back soon!", "success")
