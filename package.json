@@ -1,0 +1,23 @@
+{
+  "name": "findfut",
+  "version": "0.0.1",
+  "description": "Social Network",
+  "main": " ",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "node-sass": "^2.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brunobra/findfut.git"
+  },
+  "author": "Bruno Junqueira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brunobra/findfut/issues"
+  },
+  "homepage": "https://github.com/brunobra/findfut"
+}
