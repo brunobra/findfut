@@ -3,6 +3,7 @@ $('.menu-anchor').on('click touchstart', function(e){
   	e.preventDefault();
 });
 
+// /bla
 $('.user_info').on('click touchstart', function(e){
 	$('.user_info li').toggleClass('active');
 });
